@@ -66,6 +66,7 @@ ROBOTSTXT_OBEY = True
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'Lianjia.pipelines.LianjiaPipeline': 300,
+    #'Lianjia.pipelines.LianjiaQuPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

@@ -20,3 +20,12 @@ class LianjiaPipeline(object):
                         item['city'], item['page']))
 
         return item
+
+
+class LianjiaQuPipeline(object):
+
+    def process_item(self, item, spider):
+        f = open('D:\\ideaProjects\\python\\Lianjia\\lianjiaqu.csv', 'a+')
+        write = csv.writer(f)
+        write.writerow((item['rootName'], item['name']))
+        return item

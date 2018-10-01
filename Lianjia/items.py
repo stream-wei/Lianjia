@@ -24,3 +24,9 @@ class LianjiaItem(scrapy.Item):
     link = scrapy.Field()
     city = scrapy.Field()
     pass
+
+
+class QuItem(scrapy.Item):
+    name = scrapy.Field()
+    rootName = scrapy.Field()
+    pass
