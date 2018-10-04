@@ -12,6 +12,7 @@ class LianjiaItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     page = scrapy.Field()
+    district = scrapy.Field()
     title = scrapy.Field()
     community = scrapy.Field()
     model = scrapy.Field()
@@ -22,7 +23,7 @@ class LianjiaItem(scrapy.Item):
     price = scrapy.Field()
     average_price = scrapy.Field()
     link = scrapy.Field()
-    city = scrapy.Field()
+    zone = scrapy.Field()
     pass
 
 

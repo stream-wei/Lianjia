@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import math
 import random
 import time
@@ -77,8 +79,10 @@ class LianjiaSpider(scrapy.Spider):
                     try:
                         item = LianjiaItem()
                         item['page'] = i
-                        item['title'] = house.xpath('div[1]/div[1]/a/text()').pop()
+                        item['district'] = response.meta["id3"]  # 区
+                        item['zone'] = response.meta["id3"]  # 板块
                         item['community'] = house.xpath('div[1]/div[2]/div/a/text()').pop()  # 小区
+                        item['title'] = house.xpath('div[1]/div[1]/a/text()').pop()
                         item['model'] = house.xpath('div[1]/div[2]/div/text()').pop().split('|')[1]  # 户型
                         item['area'] = house.xpath('div[1]/div[2]/div/text()').pop().split('|')[2]  # 面积
                         item['focus_num'] = house.xpath('div[1]/div[4]/text()').pop().split('/')[0]
@@ -87,8 +91,6 @@ class LianjiaSpider(scrapy.Spider):
                         item['price'] = house.xpath('div[1]/div[6]/div[1]/span/text()').pop()  # 总价
                         item['average_price'] = house.xpath('div[1]/div[6]/div[2]/span/text()').pop()  # 均价
                         item['link'] = house.xpath('div[1]/div[1]/a/@href').pop()
-                        item['city'] = response.meta["id3"]  # 区
-                        item['zone'] = response.meta["id3"]  # 板块
                         self.url_detail = house.xpath('div[1]/div[1]/a/@href').pop()
                     except Exception:
                         pass
